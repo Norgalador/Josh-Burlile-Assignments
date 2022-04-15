@@ -1,0 +1,21 @@
+package zookeeperpart1;
+
+public class Gorilla extends Mammal {
+
+	// inherit super class with Gorilla class
+	public Gorilla(int energyLvl) {
+		super(energyLvl);
+	}
+	
+	public void throwSomething() {
+		System.out.println("I just threw something!");
+	}
+	
+	public void eatBananas() {
+		System.out.println("Now eating a banana...yum!");
+	}
+	
+	public void climb() {
+		System.out.println("I am climbing this tree now.");
+	}
+}

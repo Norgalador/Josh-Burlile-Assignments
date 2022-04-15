@@ -1,0 +1,26 @@
+package zookeeperpart1;
+
+public class Mammal {
+	
+	private int energyLvl;
+	
+	public Mammal(int energyLvl) {
+		this.energyLvl = energyLvl;
+	}
+
+	public int getEnergyLvl() {
+		return energyLvl;
+	}
+
+	public void setEnergyLvl(int energyLvl) {
+		this.energyLvl = energyLvl;
+	}
+	
+	public int displayEnergy() {
+		System.out.printf("%s has an energy level of \t", this);
+		return this.energyLvl;
+	}
+	
+}
+
+

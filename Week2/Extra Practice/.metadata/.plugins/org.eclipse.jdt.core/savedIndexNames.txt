@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+/Users/joshuaburlile/Desktop/VS_Code/Java/Java-April22/Josh-Burlile-Assignments/Week2/Extra Practice/.metadata/.plugins/org.eclipse.jdt.core
+565549098.index
+382230476.index
+1865797976.index
