@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+/Users/joshuaburlile/Desktop/VS_Code/Java/Java-April22/Josh-Burlile-Assignments/Week2/Zoo Keeper Part 2/.metadata/.plugins/org.eclipse.jdt.core
+1865797976.index
+100193917.index
+1175494123.index
+839797856.index
+565549098.index
