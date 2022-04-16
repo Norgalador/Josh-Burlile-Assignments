@@ -4,7 +4,7 @@ public class BatTest {
 
 	public static void main(String[] args) {
 		
-		Bat dracula = new Bat(300);
+		Bat dracula = new Bat();
 		dracula.attackTown();
 		dracula.attackTown();
 		dracula.attackTown();
