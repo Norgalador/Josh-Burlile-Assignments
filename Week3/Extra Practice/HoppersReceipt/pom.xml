@@ -8,12 +8,12 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.codingdojo.hellohuman</groupId>
-	<artifactId>HelloHuman</artifactId>
+	<groupId>com.codingdojo.hoppersreceipt</groupId>
+	<artifactId>HoppersReceipt</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>HelloHuman</name>
-	<description>Route practice project</description>
+	<name>HoppersReceipt</name>
+	<description>Practice with routes and dependency injection</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
