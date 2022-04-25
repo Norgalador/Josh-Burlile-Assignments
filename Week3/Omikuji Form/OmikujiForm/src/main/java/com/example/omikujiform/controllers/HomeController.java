@@ -6,19 +6,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/omikuji")
 public class HomeController {
 
-	@GetMapping("")
+	@GetMapping("/")
 	private String index() {
+		return "redirect:/omikuji";
+	}
+	
+	@GetMapping("/omikuji")
+	private String omikuji() {
 		return "index.jsp";
 	}
 	
-	@GetMapping("/show")
+	@GetMapping("/omikuji/show")
 	private String omikujiResults(HttpSession session, Model model) {
 		
 		String result = (String) session.getAttribute("formOmikuji");

@@ -15,7 +15,7 @@
 <body>
 	<div class="card col-6 offset-3">
 		<h1 class="card-header text-center">Send an Omikuji!</h1>
-		<form class="card-body" action="/omikuji/processForm" method="post">
+		<form class="card-body" action="/processForm" method="post">
 			<label class="form-label p-2">Pick any number from 5 to 25</label>
 			<input class="form-control p-2" type="number" name="number" min="5" max="25">
 	        <label class="form-label p-2">Enter the name of any city:</label>
