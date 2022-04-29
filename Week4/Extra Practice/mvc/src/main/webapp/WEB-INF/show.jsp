@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<h1>Show Book</h1>
+	<h1><c:out value="${book.title}"></c:out></h1>
 
 	<table class="table table-dark">
 		<thead>

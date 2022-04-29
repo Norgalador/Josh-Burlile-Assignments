@@ -24,14 +24,15 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${allBooks}" var="book">
-			<tr>
-				<td><c:out value="${book.title}"></c:out></td>
-				<td><c:out value="${book.description}"></c:out></td>
-				<td><c:out value="${book.numberOfPages}"></c:out></td>
-			</tr>
+			<c:forEach items="${allBooks}" var="book">
+				<tr>
+					<td><a href="/books/${book.id}"><c:out
+								value="${book.title}"></c:out></a></td>
+					<td><c:out value="${book.description}"></c:out></td>
+					<td><c:out value="${book.numberOfPages}"></c:out></td>
+				</tr>
 
-		</c:forEach>
+			</c:forEach>
 		</tbody>
 	</table>
 
