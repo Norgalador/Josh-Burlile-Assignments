@@ -16,7 +16,7 @@
 <body>
 	<div class="col-6 offset-md-3">
 		<h1>Save Travels</h1>
-		<table class="table table-dark">
+		<table class="table table-info table-striped">
 			<thead>
 				<tr>
 					<th>Expense</th>
@@ -32,10 +32,9 @@
 									value="${expense.expense}"></c:out></a></td>
 						<td><c:out value="${expense.vendor}"></c:out></td>
 						<td><c:out value="${expense.amount}"></c:out></td>
-						<td><a href="/edit/${expense.id}">Edit</a>
-						
+						<td class="d-inline-block"><a href="/edit/${expense.id}">Edit</a>
 						<form:form action="/delete/${expense.id}" method="delete">
-							<button>Delete</button>
+							<button class="btn btn-link">Delete</button>
 						</form:form>
 						</td>
 					</tr>
@@ -56,17 +55,17 @@
 			</div>
 			<div class="mt-3 form-group">
 				<form:label path="vendor">Vendor:</form:label>
-				<form:errors path="vendor" />
+				<form:errors class="text-danger" path="vendor" />
 				<form:input type="text" class="form-control" path="vendor" />
 			</div>
 			<div class="mt-3 form-group">
 				<form:label path="amount">Amount:</form:label>
-				<form:errors path="amount" />
+				<form:errors class="text-danger" path="amount" />
 				<form:input type="text" class="form-control" path="amount" />
 			</div>
 			<div class="mt-3 form-group">
 				<form:label path="description">Description:</form:label>
-				<form:errors path="description" />
+				<form:errors class="text-danger" path="description" />
 				<form:textarea class="form-control" path="description" rows="3"></form:textarea>
 			</div>
 			<button type="submit" class="mt-3 btn btn-primary">Submit</button>
