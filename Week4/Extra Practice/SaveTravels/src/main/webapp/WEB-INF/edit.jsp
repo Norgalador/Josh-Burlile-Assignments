@@ -11,43 +11,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Expenses</title>
+<title>Edit an Expense</title>
 </head>
 <body>
 	<div class="col-6 offset-md-3">
-		<h1>Save Travels</h1>
-		<table class="table table-dark">
-			<thead>
-				<tr>
-					<th>Expense</th>
-					<th>Vendor</th>
-					<th>Amount</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${allExpenses}" var="expense">
-					<tr>
-						<td><a href="/expenses/${expense.id}"><c:out
-									value="${expense.expense}"></c:out></a></td>
-						<td><c:out value="${expense.vendor}"></c:out></td>
-						<td><c:out value="${expense.amount}"></c:out></td>
-						<td><a href="/edit/${expense.id}">Edit</a>
-						
-						<form:form action="/delete/${expense.id}" method="delete">
-							<button>Delete</button>
-						</form:form>
-						</td>
-					</tr>
-
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
-	<div class="col-6 offset-md-3">
-		<h3>Add an expense:</h3>
-		<form:form action="/processing" method="post"
-			modelAttribute="newExpense">
+		<h3>Edit an expense:</h3>
+		<form:form action="/update/${editExpense.id}" method="put"
+			modelAttribute="editExpense">
 			<div class=mt-3 class="form-group">
 				<form:label path="expense">Expense Name:</form:label>
 				<form:errors class="text-danger" path="expense" />
@@ -69,7 +39,7 @@
 				<form:errors path="description" />
 				<form:textarea class="form-control" path="description" rows="3"></form:textarea>
 			</div>
-			<button type="submit" class="mt-3 btn btn-primary">Submit</button>
+			<button type="submit" class="mt-3 btn btn-primary">Update</button>
 		</form:form>
 	</div>
 
