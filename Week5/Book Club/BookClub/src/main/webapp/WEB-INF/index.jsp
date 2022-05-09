@@ -22,8 +22,8 @@
 <body class="container">
 
 
-	<h1>Welcome!</h1>
-	<p>Join our growing community!</p>
+	<h1 class="text-center">Welcome to the Book Club!</h1>
+	<p class="text-center">Join our growing community!</p>
 
 	<div class="row">
 		<div class="col-8 offset-2 card">

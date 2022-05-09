@@ -26,9 +26,23 @@
 			Welcome to Books Dashboard,
 			<c:out value="${loggedInUser.name}" />
 		</h1>
-		<a href="">Home</a> <a href="/new">Add a Book</a> <a href="/logout">Logout</a>
+		<nav class="navbar navbar-expand-lg p-2 mb-3">
+			<a class="navbar-brand" href="#">Book Club</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+					<a class="nav-item nav-link active" href="#">Home</a> <a
+						class="nav-item nav-link" href="/new">Add a Book</a> <a
+						class="nav-item nav-link" href="/logout">Logout</a>
+				</div>
+			</div>
+		</nav>
 
-		<table class="table table-dark">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>Book Name</th>
@@ -39,7 +53,8 @@
 			<tbody>
 				<c:forEach items="${books}" var="book">
 					<tr>
-						<td><a href="/books/bookDetails/${book.id}">${book.title} </a></td>
+						<td><a href="/books/bookDetails/${book.id}">${book.title}
+						</a></td>
 						<td>${book.author}</td>
 						<td>${book.user.name}</td>
 				</c:forEach>
