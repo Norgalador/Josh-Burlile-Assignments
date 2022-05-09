@@ -24,7 +24,7 @@
 	<div class="container">
 		<h1>Add a new book</h1>
 		<p>
-			<a href="">Home</a> <a href="/new">New Book</a> <a href="/logout">Logout</a>
+			<a href="/dashboard">Home</a> <a href="/new">New Book</a> <a href="/logout">Logout</a>
 		</p>
 		<form:form action="/books/create" method="post"
 			modelAttribute="newBook">
