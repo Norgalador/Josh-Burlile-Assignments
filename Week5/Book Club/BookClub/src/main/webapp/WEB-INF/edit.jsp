@@ -33,8 +33,9 @@
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
 					<a class="nav-item nav-link active" href="#">Home</a> <a
-						class="nav-item nav-link" href="/new">Add a Book</a> <a
-						class="nav-item nav-link" href="/logout">Logout</a>
+						class="nav-item nav-link" href="/new">Add a Book</a> 
+						<a class="nav-item nav-link" href="/bookmarket">Book Market</a>
+						<a class="nav-item nav-link" href="/logout">Logout</a>
 				</div>
 			</div>
 		</nav>

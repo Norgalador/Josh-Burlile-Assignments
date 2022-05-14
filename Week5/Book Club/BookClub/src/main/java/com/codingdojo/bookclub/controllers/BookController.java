@@ -48,6 +48,19 @@ public class BookController {
 	 }
 
 //		Check if user is in session for all get routes
+	 
+//		Book Market route
+	 	@GetMapping("/bookmarket")
+	 	public String bookmarket(HttpSession session, Model bookModel) {
+	 	if(session.getAttribute("loggedInUser")!=null) {
+	 		bookModel.addAttribute("books", bookService.allBooks());
+	 		return "bookmarket.jsp";
+	 	}
+	 	else {
+	 		return "redirect:/";
+	 	}
+	 }
+	 
 //		New Book
 	 	@GetMapping("/new")
 	 	public String newBook(HttpSession session, 

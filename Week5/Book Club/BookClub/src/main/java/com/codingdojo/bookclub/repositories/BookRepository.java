@@ -11,4 +11,7 @@ import com.codingdojo.bookclub.models.Book;
 public interface BookRepository extends CrudRepository<Book, Long> {
 
 	List<Book> findAll();
+	List<Book> findByUserIdIs(Long userId);
+	List<Book> findByBorrowerIdIs(Long userId);
+	List<Book> findByBorrowerIdIsOrUserIdIs(Long borrowerID, Long userId);
 }

@@ -1,4 +1,4 @@
-package com.codingdojo.bookclub.models;
+package com.codingdojo.projectmanager.models;
 
 import java.util.Date;
 import java.util.List;
@@ -9,6 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -27,9 +30,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotBlank(message="Name is required.")
-    @Size(min = 3, max = 30, message="Name must be between 3 and 30 characters")
-    private String name;
+    @NotBlank(message="First name is required.")
+    @Size(min = 3, max = 30, message="First name must be between 3 and 30 characters")
+    private String firstName;
+    
+    @NotBlank(message="Last name is required.")
+    @Size(min = 3, max = 30, message="Last name must be between 3 and 30 characters")
+    private String lastName;
     
     @NotBlank(message="Email is required.")
     @Email(message="Please enter a valid email.")
@@ -41,9 +48,8 @@ public class User {
     
     @Transient
     @NotBlank(message="Password confirmation is required.")
-    @Size(min = 8, max = 100, message="Password confirmation must be between 8 and 100 characters")
+    @Size(min = 8, max = 100, message="Password confirmation must match password field")
     private String confirm;
-    
     
     // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)
@@ -52,39 +58,24 @@ public class User {
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
     
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Book> books;
+ // Relationship to other tables in the database
+    @OneToMany(mappedBy="lead", fetch = FetchType.LAZY)
+    private List<Project> projects;
     
-    @Column(updatable=false)
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
-    private List<Book> borrowedBooks;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "users_projects", 
+        joinColumns = @JoinColumn(name = "user_id"), 
+        inverseJoinColumns = @JoinColumn(name = "project_id")
+    )
+    private List<Project> projectLead;
     
-    public User() {
-    
-    }
+    //	Blank constructor
+    public User() {}
+	
 
-	public User(Long id,
-			@NotBlank(message = "Name is required.") @Size(min = 3, max = 30, message = "Name must be between 3 and 30 characters") String name,
-			@NotBlank(message = "Email is required.") @Email(message = "Please enter a valid email.") String email,
-			@NotBlank(message = "Password is required.") @Size(min = 8, max = 100, message = "Password must be between 8 and 100 characters") String password,
-			@NotBlank(message = "Password confirmation is required.") @Size(min = 8, max = 100, message = "Password confirmation must be between 8 and 100 characters") String confirm,
-			Date createdAt, Date updatedAt, List<Book> books, List<Book> borrowedBooks) {
-		this.id = id;
-		this.name = name;
-		this.email = email;
-		this.password = password;
-		this.confirm = confirm;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-		this.books = books;
-		this.borrowedBooks = borrowedBooks;
-	}
-
-
-	//insert getters and setters here   
-    
-   
-    public Long getId() {
+	//insert getters and setters here
+	public Long getId() {
 		return id;
 	}
 
@@ -92,12 +83,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public String getEmail() {
@@ -140,21 +139,22 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 
-	public List<Book> getBooks() {
-		return books;
+	public List<Project> getProjects() {
+		return projects;
 	}
 
-	public void setBooks(List<Book> books) {
-		this.books = books;
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
 	}
 
-	public List<Book> getBorrowedBooks() {
-		return borrowedBooks;
+	public List<Project> getProjectLead() {
+		return projectLead;
 	}
 
-	public void setBorrowedBooks(List<Book> borrowedBooks) {
-		this.borrowedBooks = borrowedBooks;
+	public void setProjectLead(List<Project> projectLead) {
+		this.projectLead = projectLead;
 	}
+
 
 	@PrePersist
     protected void onCreate(){
